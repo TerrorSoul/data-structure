@@ -1,4 +1,4 @@
-#include "SqList.h"
+#include "List/SqList.h"
 
 int main(int argc, char *argv[]) {
     SqList L;
