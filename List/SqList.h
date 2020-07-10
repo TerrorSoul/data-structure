@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef int ElemType;
-
 // - - - - - 线性表的动态分配顺序存储结构 - - - - -
 #define LIST_INIT_SIZE 100    // 线性表存储空间的初始分配量
 #define LISTINCREMENT 10    // 线性表存储空间的分配增量
@@ -120,3 +118,19 @@ Status ListTraverse_Sq(SqList L, Status (*visit)(ElemType)) {
 	if (!visit(*p)) return ERROR;
     return OK;
 }// ListTraverse_Sq
+
+void MergeList_Sq(SqList La, SqList Lb, SqList *L) {
+    // 已知顺序线性表 La 和 Lb 的元素按值非递减排列
+    // 归并 La 和 Lb 得到新的顺序线性表 Lc，Lc 的元素也按值非递减排列
+    ElemType *pa = La.elem, *pb = Lb.elem;
+    Lc->listsize = Lc->length = La.length + Lb.length;
+    Lc->elem = (ElemType *)malloc(Lc->listsize * sizeof(ElemType));
+    if (!Lc->elem) exit(OVERFLOW);    // 存储分配失败
+    ElemType *pa_last = La.elem + La.length - 1, *pb_last = Lb.elem + Lb.length - 1, *pc = Lc->elem;
+    while (pa <= pa_last && pb <= pb_last) {    // 归并
+	if (*pa <= *pb) *pc++ = *pa++;
+	else *pc++ = *pb++;
+    }
+    while (pa <= pa_last) *pc++ = *pa++;    // 插入 La 的剩余元素
+    while (pb <= pb_last) *pc++ = *pb++;    // 插入 Lb 的剩余元素
+}// MergeList_Sq
