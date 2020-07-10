@@ -119,7 +119,7 @@ Status ListTraverse_Sq(SqList L, Status (*visit)(ElemType)) {
     return OK;
 }// ListTraverse_Sq
 
-void MergeList_Sq(SqList La, SqList Lb, SqList *L) {
+void MergeList_Sq(SqList La, SqList Lb, SqList *Lc) {
     // 已知顺序线性表 La 和 Lb 的元素按值非递减排列
     // 归并 La 和 Lb 得到新的顺序线性表 Lc，Lc 的元素也按值非递减排列
     ElemType *pa = La.elem, *pb = Lb.elem;
