@@ -11,7 +11,7 @@ typedef LinkList polynomial;    // 用带头结点的有序链表表示多项式
 
 // - - - - - 基本操作的算法描述 - - - - -
 Status compare(term a, term b) {
-    // 依 a 的指数值 < (或 =)(或 >) b 的指数值，分别返回 -1、0 和 +1
+    // 依 a 的指数值 >= (或 <) b 的指数值，分别返回 TRUE 和 FALSE
     return a.expn >= b.expn ? TRUE : FALSE;
 }// cmp
 void CreatPolyn(polynomial *P, int m) {
