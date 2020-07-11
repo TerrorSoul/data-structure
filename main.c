@@ -1,3 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "predefined.h"
+typedef int ElemType;
 #include "List/SqList.h"
 #include "List/LinkList.h"
 

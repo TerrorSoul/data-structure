@@ -9,4 +9,3 @@
 typedef int Status;
 
 // 数据元素类型约定为 ElemType，由用户在使用该数据类型时自行定义
-typedef int ElemType;

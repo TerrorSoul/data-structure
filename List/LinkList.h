@@ -2,7 +2,7 @@
 typedef struct LNode{    // 结点类型
     ElemType data;
     struct LNode *next;
-}*Link, *Position;
+}*Link;
 
 typedef struct {    // 链表类型
     Link head, tail;    // 分别指向线性链表中的头结点和最后一个结点
@@ -27,7 +27,8 @@ void FreeNode(Link *p) {
 
 Status InitList_L(LinkList *L) {
     // 构造一个空的线性链表 L
-    if (!MakeNode(&L->head, 0)) return ERROR;
+    ElemType e;
+    if (!MakeNode(&L->head, e)) return ERROR;
     L->tail = NULL;
     L->len = 0;
     return OK;
@@ -132,17 +133,17 @@ int ListLength_L(LinkList L) {
     return L.len;
 }// ListLength_L
 
-Position GetHead_L(LinkList L) {
+Link GetHead_L(LinkList L) {
     // 返回线性链表 L 中头结点的位置
     return L.head;
 }// GetHead_L
 
-Position GetLast_L(LinkList L) {
+Link GetLast_L(LinkList L) {
     // 返回线性链表 L 中最后一个结点的位置
     return L.tail;
 }// GetLast_L
 
-Position PriorPos_L(LinkList L, Link p) {
+Link PriorPos_L(LinkList L, Link p) {
     // 已知 p 指向线性链表 L 中的一个结点，返回 p 所指结点的直接前驱的位置，
     // 若无前驱，则返回NULL
     Link prior = NULL;
@@ -150,7 +151,7 @@ Position PriorPos_L(LinkList L, Link p) {
     return prior;
 }// PriorPos_L
 
-Position NextPos_L(LinkList L, Link p) {
+Link NextPos_L(LinkList L, Link p) {
     // 已知 p 指向线性链表 L 中的一个结点，返回 p 所指结点的直接后继的位置，
     // 若无后继，则返回NULL
     return p->next;
@@ -164,7 +165,7 @@ Status LocatePos_L(LinkList L, int i, Link *p) {
     return OK;
 }// LocatePos_L
 
-Position LocateElem_L(LinkList L, ElemType e, Status (*compare)(ElemType, ElemType)) {
+Link LocateElem_L(LinkList L, ElemType e, Status (*compare)(ElemType, ElemType)) {
     // 返回线性链表 L 中第 1 个与 e 满足函数 compare() 判定关系的元素的位置，
     // 若不存在这样的元素，则返回 NULL
     Link p = L.head;
@@ -177,7 +178,7 @@ Status ListTraverse_L(LinkList L, Status (*visit)()) {
     // 依次对 L 的每个元素调用函数 visit()。一旦 visit() 失败，则操作失败。
     Link p = L.head;
     for (p = p->next; p != NULL; p = p->next)
-	if (!visit(p->data)) return ERROR;
+	if (!visit(p)) return ERROR;
     return OK;
 }// ListTraverse_L
 
@@ -195,8 +196,8 @@ Status MergeList_L(LinkList *La, LinkList *Lb, LinkList *Lc, int (*compare)(Elem
     // 已知单链线性表 La 和 Lb 的元素按值非递减排列
     // 归并 La 和 Lb 得到新的单链线性表 Lc，Lc 的元素也按值非递减排列。
     if (!InitList_L(Lc)) return ERROR;    // 存储空间分配失败
-    Position ha = GetHead_L(*La), hb = GetHead_L(*Lb);    // ha 和 hb 分别指向 La 和 Lb 的头结点
-    Position pa = NextPos_L(*La, ha), pb = NextPos_L(*Lb, hb), q;    // pa 和 pb 分别指向 La 和 Lb 中当前结点
+    Link ha = GetHead_L(*La), hb = GetHead_L(*Lb);    // ha 和 hb 分别指向 La 和 Lb 的头结点
+    Link pa = NextPos_L(*La, ha), pb = NextPos_L(*Lb, hb), q;    // pa 和 pb 分别指向 La 和 Lb 中当前结点
     while (pa && pb) {    // La 和 Lb 均非空
         ElemType a = GetCurElem_L(pa), b = GetCurElem_L(pb);    // a 和 b 为两表中当前比较元素
 	if (compare(a, b) <= 0) {    // a <= b
