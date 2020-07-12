@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "../predefined.h"
-#include "Polynomial.h"
+#include "polynomial.h"
 
 int main(int argc, char *argv[]) {
     polynomial P1, P2, P3, P4;

@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "predefined.h"
+#include "../predefined.h"
+// 数据元素类型约定为 ElemType，由用户在使用该数据类型时自行定义
 typedef int ElemType;
-#include "List/SqList.h"
-#include "List/LinkList.h"
+#include "sqlist.h"
+#include "linklist.h"
 
-Status PrintElem(ElemType e) {
-    printf("%d ", e);
+Status PrintElem(Link p) {
+    printf("%d ", p->data);
     return OK;
 }// PrintElem
 
@@ -16,6 +17,7 @@ int compare(ElemType e1, ElemType e2) {
 }// compare
 
 int main(int argc, char *argv[]) {
+    // 顺序线性表
     SqList sqList;
     InitList_Sq(&sqList);
     for (int i = 0; i < 10; ++i) ListInsert_Sq(&sqList, i + 1, i);
@@ -26,6 +28,7 @@ int main(int argc, char *argv[]) {
     printf("\n");
     DestroyList_Sq(&sqList);
 
+    // 线性链表
     LinkList linkList1, linkList2, linkList3;
     InitList_L(&linkList1);
     InitList_L(&linkList2);

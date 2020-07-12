@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// 数据元素类型约定为 ElemType，由用户在使用该数据类型时自行定义
 typedef struct {    // 项的表示，多项式的项作为 LinkList 的数据元素
     float coef;    // 系数
     int expn;    // 指数
-}term, ElemType;    // 两个类型名，term 用于本 ADT，ElemType 为 LinkList 的数据对象名
-#include "LinkList.h"
+}ElemType;    // ElemType 为 LinkList 的数据对象名
+#include "linklist.h"
 
 typedef LinkList polynomial;    // 用带头结点的有序链表表示多项式
 
 // - - - - - 基本操作的算法描述 - - - - -
-Status compare(term a, term b) {
+Status compare(ElemType a, ElemType b) {
     // 依 a 的指数值 >= (或 <) b 的指数值，分别返回 TRUE 和 FALSE
     return a.expn >= b.expn ? TRUE : FALSE;
 }// cmp
@@ -18,7 +19,7 @@ void CreatPolyn(polynomial *P, int m) {
     // 输入 m 项的系数和指数，建立表示一元多项式的有序链表 P
     InitList_L(P);
     Link h = GetHead_L(*P), q, s;
-    term e = {0.0, -1};
+    ElemType e = {0.0, -1};
     SetCurElem_L(&h, e);    // 设置头结点的数据元素
     for (int i = 1; i <= m; ++i) {    // 依次输入 m 个非零项
 	printf("请输入第 %d 项的系数和指数：", i);
@@ -50,7 +51,7 @@ int PolynLength(polynomial P) {
     return P.len;
 }// PolynLength
 
-int cmp(term a, term b) {
+int cmp(ElemType a, ElemType b) {
     // 依 a 的指数值 < (或 =)(或 >) b 的指数值，分别返回 -1、0 和 +1
     return a.expn < b.expn ? -1 : a.expn == b.expn ? 0 : 1;
 }// cmp
@@ -66,7 +67,7 @@ void AddPolyn(polynomial *Pa, polynomial *Pb) {
 		qa = NextPos_L(*Pa, qa);
 		break;
 	    case 0: {    // 两者的指数值相等
-                term sum = {a.coef + b.coef, a.expn};
+                ElemType sum = {a.coef + b.coef, a.expn};
 		if (sum.coef != 0.0) {    // 修改多项式 PA 中当前结点的系数值
 		    SetCurElem_L(&qa, sum);
 		    ha = qa;

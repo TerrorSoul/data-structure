@@ -7,5 +7,3 @@
 #define OVERFLOW -2
 // Status 是函数的类型，其值是函数结果状态代码
 typedef int Status;
-
-// 数据元素类型约定为 ElemType，由用户在使用该数据类型时自行定义
