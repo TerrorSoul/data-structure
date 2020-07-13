@@ -7,8 +7,8 @@ typedef int ElemType;
 #include "sqlist.h"
 #include "linklist.h"
 
-Status PrintElem(Link p) {
-    printf("%d ", p->data);
+Status PrintElem(ElemType e) {
+    printf("%d ", e);
     return OK;
 }// PrintElem
 

@@ -86,7 +86,7 @@ Status QueueTraverse_L(LinkQueue Q, Status(*visit)()) {
     Q.front = Q.front->next;
     while (Q.front) {
 	Q.rear = Q.front->next;
-	if (!visit(Q.front)) return ERROR;
+	if (!visit(Q.front->data)) return ERROR;
 	Q.front = Q.rear;
     }
     return OK;

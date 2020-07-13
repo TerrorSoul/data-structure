@@ -64,7 +64,7 @@ Status DeQueue_Sq(SqQueue *Q, QElemType *e) {
 Status QueueTraverse_Sq(SqQueue Q, Status(*visit)()) {
     // 从队头到队尾依次对队列 Q 中每个元素调用函数 visit()。一旦 visit 失败，则操作失败。
     while (Q.front != Q.rear) {
-        if (!visit(Q.base + Q.front)) return ERROR;
+        if (!visit(*(Q.base + Q.front))) return ERROR;
 	Q.front = (Q.front + 1) % MAXQSIZE;
     }
     return OK;

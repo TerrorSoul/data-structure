@@ -111,7 +111,7 @@ Status ListTraverse_Sq(SqList L, Status (*visit)()) {
     // 依次对 L 的每个数据元素调用函数 visit()。一旦 visit() 失败，则操作失败。
     ElemType *q = L.elem + L.length - 1;
     for (ElemType *p = L.elem; p <= q; ++p)
-	if (!visit(p)) return ERROR;
+	if (!visit(*p)) return ERROR;
     return OK;
 }// ListTraverse_Sq
 

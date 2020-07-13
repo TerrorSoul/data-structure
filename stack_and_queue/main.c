@@ -8,17 +8,13 @@ typedef int QElemType;
 #include "linkqueue.h"
 #include "sqqueue.h"
 
-Status PrintSElem(SElemType *p) {
-    printf("%d ", *p);
+Status PrintSElem(SElemType e) {
+    printf("%d ", e);
 }// PrintSElem
 
-Status PrintQElem_L(QueuePtr p) {
-    printf("%d ", p->data);
-}// PrintQElem_L
-
-Status PrintQElem_Sq(QElemType *p) {
-    printf("%d ", *p);
-}// PrintQElem_Sq
+Status PrintQElem(QElemType e) {
+    printf("%d ", e);
+}// PrintQElem
 
 int main(int argc, char *argv[]) {
     // 栈
@@ -40,10 +36,10 @@ int main(int argc, char *argv[]) {
     InitQueue_L(&LQ);
     for (int i = 0; i < 10; ++i) EnQueue_L(&LQ, i);
     printf("单链队列的内容为：");
-    QueueTraverse_L(LQ, PrintQElem_L);
+    QueueTraverse_L(LQ, PrintQElem);
     printf("\n弹出 3 个元素后，单链队列的内容为：");
     for (int i = 0; i < 3; ++i) DeQueue_L(&LQ, &temp);
-    QueueTraverse_L(LQ, PrintQElem_L);
+    QueueTraverse_L(LQ, PrintQElem);
     GetHead_L(LQ, &temp);
     printf("\n队头元素为：%d\n", temp);
     DestroyQueue_L(&LQ);
@@ -53,10 +49,10 @@ int main(int argc, char *argv[]) {
     InitQueue_Sq(&SQ);
     for (int i = 0; i < 10; ++i) EnQueue_Sq(&SQ, i);
     printf("循环队列的内容为：");
-    QueueTraverse_Sq(SQ, PrintQElem_Sq);
+    QueueTraverse_Sq(SQ, PrintQElem);
     printf("\n弹出 3 个元素后，循环队列的内容为：");
     for (int i = 0; i < 3; ++i) DeQueue_Sq(&SQ, &temp);
-    QueueTraverse_Sq(SQ, PrintQElem_Sq);
+    QueueTraverse_Sq(SQ, PrintQElem);
     GetHead_Sq(SQ, &temp);
     printf("\n队头元素为：%d\n", temp);
     DestroyQueue_Sq(&SQ);

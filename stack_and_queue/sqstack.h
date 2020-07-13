@@ -70,7 +70,7 @@ Status Pop(SqStack *S, SElemType *e) {
 Status StackTraverse(SqStack S, Status(*visit)()) {
     // 从栈底到栈顶依次对栈中每个元素调用函数 visit()。一旦 visit() 失败，则操作失败
     while (S.base != S.top) {
-        if (!visit(S.base++)) return ERROR;
+        if (!visit(*(S.base++))) return ERROR;
     }
     return OK;
 }// StackTraverse

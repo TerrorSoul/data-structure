@@ -38,8 +38,8 @@ void DestroyPolyn(polynomial *P) {
     DestroyList_L(P);
 }// DestroyPolyn
 
-Status printPolyn(Link p) {
-    printf("(%.1f)x^%d ", p->data.coef, p->data.expn);
+Status printPolyn(ElemType e) {
+    printf("(%.1f)x^%d ", e.coef, e.expn);
 }
 void PrintPolyn(polynomial P) {
     // 打印输出一元多项式 P
@@ -96,14 +96,10 @@ void AddPolyn(polynomial *Pa, polynomial *Pb) {
     FreeNode(&hb);    // 释放 Pb 的头结点
 }// AddPolyn
 
-Status CoefNegative(Link p) {
-    // 将 p 所指结点的系数变为其相反数
-    p->data.coef *= -1;
-    return OK;
-}// MultiplyInt
 void SubtractPolyn(polynomial *Pa, polynomial *Pb) {
     // 完成多项式相减运算，即：Pa = Pa - Pb，并销毁一元多项式 Pb
-    ListTraverse_L(*Pb, CoefNegative);
+    Link qb = GetHead_L(*Pb);
+    while (qb = NextPos_L(*Pb, qb)) qb->data.coef *= -1;
     AddPolyn(Pa, Pb);
 }// SubtractPolyn
 

@@ -178,7 +178,7 @@ Status ListTraverse_L(LinkList L, Status (*visit)()) {
     // 依次对 L 的每个元素调用函数 visit()。一旦 visit() 失败，则操作失败。
     Link p = L.head;
     for (p = p->next; p != NULL; p = p->next)
-	if (!visit(p)) return ERROR;
+	if (!visit(p->data)) return ERROR;
     return OK;
 }// ListTraverse_L
 
