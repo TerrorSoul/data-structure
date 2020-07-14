@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
     printf("迭代的层序遍历结果为：");
     LevelOrderTraverse(T, PrintTElem);
     printf("\n\n");
+    DestroyBiTree(&T);
 
     // 求赫夫曼编码
     int w[] = {5, 29, 7, 8, 14, 23, 3, 11};
