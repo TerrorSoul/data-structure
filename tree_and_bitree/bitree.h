@@ -31,7 +31,7 @@ Status CreatBiTree(BiTree *T) {
     // 构造二叉链表表示的二叉树 T
     char ch;
     scanf("%c", &ch);
-    if (ch == ' ') T = NULL;
+    if (ch == ' ') *T = NULL;
     else {
         if (!(*T = (BiTree)malloc(sizeof(BiTNode)))) exit(OVERFLOW);
 	(*T)->data = ch;    // 生成根结点

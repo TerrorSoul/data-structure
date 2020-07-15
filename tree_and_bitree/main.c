@@ -4,6 +4,7 @@
 #include "../predefined.h"
 typedef char TElemType;
 #include "bitree.h"
+#include "bithrtree.h"
 #include "huffmantree.h"
 
 Status PrintTElem(TElemType e) {
@@ -14,6 +15,7 @@ int main(int argc, char *argv[]) {
     // 二叉树	
     BiTree T;
     CreatBiTree(&T);
+    getchar();
     printf("递归的先序遍历结果为：");
     PreOrderTraverse_R(T, PrintTElem);
     printf("\n");
@@ -39,6 +41,14 @@ int main(int argc, char *argv[]) {
     LevelOrderTraverse(T, PrintTElem);
     printf("\n\n");
     DestroyBiTree(&T);
+
+    // 二叉线索树
+    BiThrTree TT, Thrt;
+    CreateBiThrTree(&TT);
+    InOrderThreading(&Thrt, TT);
+    printf("中序线索二叉树的迭代的中序遍历结果为：");
+    InOrderTraverse_Thr(Thrt, PrintTElem);
+    printf("\n\n");
 
     // 求赫夫曼编码
     int w[] = {5, 29, 7, 8, 14, 23, 3, 11};
