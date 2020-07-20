@@ -139,7 +139,7 @@ Status DeleteChild(BiTree T, BiTree p, int LR) {
     return OK;
 }// DeleteChild
 
-Status PreOrderTraverse_R(BiTree T, Status(*visit)(TElemType e)) {
+Status PreOrderTraverse_R(BiTree T, Status (*visit)(TElemType e)) {
     // 采用二叉链表存储结构，visit 是对结点操作的应用函数
     // 先序遍历二叉树 T 的递归算法，对每个结点调用函数 visit 一次且仅一次
     // 一旦 visit() 失败，则操作失败
@@ -152,7 +152,7 @@ Status PreOrderTraverse_R(BiTree T, Status(*visit)(TElemType e)) {
     } else return OK;
 }// PreOrderTraverse_R
 
-Status InOrderTraverse_R(BiTree T, Status(*visit)(TElemType e)) {
+Status InOrderTraverse_R(BiTree T, Status (*visit)(TElemType e)) {
     // 采用二叉链表存储结构，visit 是对结点操作的应用函数
     // 中序遍历二叉树 T 的递归算法，对每个结点调用函数 visit 一次且仅一次
     // 一旦 visit() 失败，则操作失败
@@ -165,7 +165,7 @@ Status InOrderTraverse_R(BiTree T, Status(*visit)(TElemType e)) {
     } else return OK;
 }// InOrderTraverse_R
 
-Status PostOrderTraverse_R(BiTree T, Status(*visit)(TElemType e)) {
+Status PostOrderTraverse_R(BiTree T, Status (*visit)(TElemType e)) {
     // 采用二叉链表存储结构，visit 是对结点操作的应用函数
     // 后序遍历二叉树 T 的递归算法，对每个结点调用函数 visit 一次且仅一次
     // 一旦 visit() 失败，则操作失败
@@ -178,7 +178,7 @@ Status PostOrderTraverse_R(BiTree T, Status(*visit)(TElemType e)) {
     } else return OK;
 }// PostOrderTraverse_R
 
-Status PreOrderTraverse_I(BiTree T, Status(*visit)(TElemType e)) {
+Status PreOrderTraverse_I(BiTree T, Status (*visit)(TElemType e)) {
     // 采用二叉链表存储结构，visit 是对结点操作的应用函数
     // 先序遍历二叉树 T 的迭代算法，对每个结点调用函数 visit 一次且仅一次
     // 一旦 visit() 失败，则操作失败
@@ -194,7 +194,7 @@ Status PreOrderTraverse_I(BiTree T, Status(*visit)(TElemType e)) {
     }
 }// PreOrderTraverse_I
 
-Status InOrderTraverse_I1(BiTree T, Status(*visit)(TElemType e)) {
+Status InOrderTraverse_I1(BiTree T, Status (*visit)(TElemType e)) {
     // 采用二叉链表存储结构，visit 是对结点操作的应用函数
     // 中序遍历二叉树 T 的迭代算法，对每个结点调用函数 visit 一次且仅一次
     // 一旦 visit() 失败，则操作失败
@@ -214,7 +214,7 @@ Status InOrderTraverse_I1(BiTree T, Status(*visit)(TElemType e)) {
     return OK;
 }// InOrderTraverse_I1
 
-Status InOrderTraverse_I2(BiTree T, Status(*visit)(TElemType e)) {
+Status InOrderTraverse_I2(BiTree T, Status (*visit)(TElemType e)) {
     // 采用二叉链表存储结构，visit 是对结点操作的应用函数
     // 中序遍历二叉树 T 的迭代算法，对每个结点调用函数 visit 一次且仅一次
     // 一旦 visit() 失败，则操作失败
@@ -234,7 +234,7 @@ Status InOrderTraverse_I2(BiTree T, Status(*visit)(TElemType e)) {
     return OK;
 }// InOrderTraverse_I2
 	
-Status PostOrderTraverse_I(BiTree T, Status(*visit)(TElemType e)) {
+Status PostOrderTraverse_I(BiTree T, Status (*visit)(TElemType e)) {
     // 采用二叉链表存储结构，visit 是对结点操作的应用函数
     // 后序遍历二叉树 T 的迭代算法，对每个结点调用函数 visit 一次且仅一次
     // 一旦 visit() 失败，则操作失败
@@ -260,7 +260,7 @@ Status PostOrderTraverse_I(BiTree T, Status(*visit)(TElemType e)) {
     return OK;
 }// PostOrderTraverse_I
 
-Status LevelOrderTraverse(BiTree T, Status(*visit)(TElemType e)) {
+Status LevelOrderTraverse(BiTree T, Status (*visit)(TElemType e)) {
     // 采用二叉链表存储结构，visit 是对结点操作的应用函数
     // 层序遍历二叉树 T，对每个结点调用函数 visit 一次且仅一次
     // 一旦 visit() 失败，则操作失败

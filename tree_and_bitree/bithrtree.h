@@ -23,6 +23,14 @@ Status CreateBiThrTree(BiThrTree *T) {
     return OK;
 }// CreateBiThrTree
 
+Status DestroyBiThrTree(BiThrTree *T) {
+    // 销毁二叉树 T
+    if ((*T)->LTag == Link && (*T)->lchild) DestroyBiThrTree(&((*T)->lchild));
+    if ((*T)->RTag == Link && (*T)->rchild) DestroyBiThrTree(&((*T)->rchild));
+    free(*T);
+    *T = NULL;
+}// DestroyBiTree
+
 Status InOrderTraverse_Thr(BiThrTree T, Status (*visit)(TElemType e)) {
     // T 指向头结点，头结点的左链 lchild 指向根结点，可参见线索化算法
     // 中序遍历二叉线索树 T 的非递归算法，对每个数据元素调用函数 visit

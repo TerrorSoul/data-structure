@@ -43,12 +43,15 @@ int main(int argc, char *argv[]) {
     DestroyBiTree(&T);
 
     // 二叉线索树
+    // 创建二叉线索树的信息：-+a  *b  -c  d  /e  f  
     BiThrTree TT, Thrt;
     CreateBiThrTree(&TT);
     InOrderThreading(&Thrt, TT);
     printf("中序线索二叉树的迭代的中序遍历结果为：");
     InOrderTraverse_Thr(Thrt, PrintTElem);
     printf("\n\n");
+    DestroyBiThrTree(&TT);
+    free(Thrt);
 
     // 求赫夫曼编码
     int w[] = {5, 29, 7, 8, 14, 23, 3, 11};

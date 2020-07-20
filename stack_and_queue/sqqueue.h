@@ -1,3 +1,6 @@
+#ifndef SQQUEUE
+#define SQQUEUE
+
 // - - - - - 循环队列——队列的顺序存储结构 - - - - -
 #define MAXQSIZE 100    // 最大队列长度
 typedef struct {
@@ -69,3 +72,5 @@ Status QueueTraverse_Sq(SqQueue Q, Status(*visit)()) {
     }
     return OK;
 }// QueueTraverse_Sq
+
+#endif
