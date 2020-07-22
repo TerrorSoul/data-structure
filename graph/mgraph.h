@@ -31,26 +31,26 @@ Status CreateDG_M(MGraph *G) {
     scanf("%d %d %d", &G->vexnum, &G->arcnum, &IncInfo);    // IncInfo 为 0 则各弧不含其他信息
     getchar();
     for (int i = 0; i < G->vexnum; ++i) {
-	printf("输入第 %d 个顶点：", i + 1);
-	scanf("%c", &G->vexs[i]);
-	getchar();
+        printf("输入第 %d 个顶点：", i + 1);
+        scanf("%c", &G->vexs[i]);
+        getchar();
     }
     for (int i = 0; i < G->vexnum; ++i)    // 初始化邻接矩阵
-	for (int j = 0; j < G->vexnum; ++j) {
+	    for (int j = 0; j < G->vexnum; ++j) {
             G->arcs[i][j].adj = 0;    // {adj, info}
             G->arcs[i][j].info = NULL;
-	}
+        }
     for (int k = 0; k < G->arcnum; ++k) {    // 构造邻接矩阵
         VertexType v1, v2;
-	printf("输入第 %d 条边依附的顶点：", k + 1);
-	scanf("%c %c", &v1, &v2);    // 输入一条边依附的顶点及权值
-	getchar();
-	int i = LocateVex_M(*G, v1), j = LocateVex_M(*G, v2);    // 确定 v1 和 v2 在 G 中位置
-	G->arcs[i][j].adj = 1;    // 弧<v1，v2>的权值
-	if (IncInfo) {    // 若弧含有相关信息，则输入
-	    G->arcs[i][j].info = (InfoType *)malloc(sizeof(InfoType));
-	    scanf("%d", G->arcs[i][j].info);
-	}
+	    printf("输入第 %d 条边依附的顶点：", k + 1);
+	    scanf("%c %c", &v1, &v2);    // 输入一条边依附的顶点及权值
+	    getchar();
+	    int i = LocateVex_M(*G, v1), j = LocateVex_M(*G, v2);    // 确定 v1 和 v2 在 G 中位置
+	    G->arcs[i][j].adj = 1;    // 弧<v1，v2>的权值
+	    if (IncInfo) {    // 若弧含有相关信息，则输入
+	        G->arcs[i][j].info = (InfoType *)malloc(sizeof(InfoType));
+	        scanf("%d", G->arcs[i][j].info);
+	    }
     }
     return OK;
 }// CreateDG_M
@@ -61,27 +61,27 @@ Status CreateDN_M(MGraph *G) {
     scanf("%d %d %d", &G->vexnum, &G->arcnum, &IncInfo);    // IncInfo 为 0 则各弧不含其他信息
     getchar();
     for (int i = 0; i < G->vexnum; ++i) {
-	printf("输入第 %d 个顶点：", i + 1);
-	scanf("%c", &G->vexs[i]);
-	getchar();
+        printf("输入第 %d 个顶点：", i + 1);
+        scanf("%c", &G->vexs[i]);
+        getchar();
     }
     for (int i = 0; i < G->vexnum; ++i)    // 初始化邻接矩阵
-	for (int j = 0; j < G->vexnum; ++j) {
+	    for (int j = 0; j < G->vexnum; ++j) {
             G->arcs[i][j].adj = INFINITY;    // {adj, info}
             G->arcs[i][j].info = NULL;
-	}
+	    }
     for (int k = 0; k < G->arcnum; ++k) {    // 构造邻接矩阵
         VertexType v1, v2;
-	int w;
-	printf("输入第 %d 条边依附的顶点及权值：", k + 1);
-	scanf("%c %c %d", &v1, &v2, &w);    // 输入一条边依附的顶点及权值
-	getchar();
-	int i = LocateVex_M(*G, v1), j = LocateVex_M(*G, v2);    // 确定 v1 和 v2 在 G 中位置
-	G->arcs[i][j].adj = w;    // 弧<v1，v2>的权值
-	if (IncInfo) {    // 若弧含有相关信息，则输入
-	    G->arcs[i][j].info = (InfoType *)malloc(sizeof(InfoType));
-	    scanf("%d", G->arcs[i][j].info);
-	}
+	    int w;
+	    printf("输入第 %d 条边依附的顶点及权值：", k + 1);
+	    scanf("%c %c %d", &v1, &v2, &w);    // 输入一条边依附的顶点及权值
+	    getchar();
+	    int i = LocateVex_M(*G, v1), j = LocateVex_M(*G, v2);    // 确定 v1 和 v2 在 G 中位置
+	    G->arcs[i][j].adj = w;    // 弧<v1，v2>的权值
+	    if (IncInfo) {    // 若弧含有相关信息，则输入
+	        G->arcs[i][j].info = (InfoType *)malloc(sizeof(InfoType));
+	        scanf("%d", G->arcs[i][j].info);
+	    }
     }
     return OK;
 }// CreateDN_M
@@ -92,27 +92,27 @@ Status CreateUDG_M(MGraph *G) {
     scanf("%d %d %d", &G->vexnum, &G->arcnum, &IncInfo);    // IncInfo 为 0 则各弧不含其他信息
     getchar();
     for (int i = 0; i < G->vexnum; ++i) {
-	printf("输入第 %d 个顶点：", i + 1);
-	scanf("%c", &G->vexs[i]);
-	getchar();
+        printf("输入第 %d 个顶点：", i + 1);
+        scanf("%c", &G->vexs[i]);
+        getchar();
     }
     for (int i = 0; i < G->vexnum; ++i)    // 初始化邻接矩阵
-	for (int j = 0; j < G->vexnum; ++j) {
+	    for (int j = 0; j < G->vexnum; ++j) {
             G->arcs[i][j].adj = 0;    // {adj, info}
             G->arcs[i][j].info = NULL;
-	}
+	    }
     for (int k = 0; k < G->arcnum; ++k) {    // 构造邻接矩阵
         VertexType v1, v2;
-	printf("输入第 %d 条边依附的顶点：", k + 1);
-	scanf("%c %c", &v1, &v2);    // 输入一条边依附的顶点及权值
-	getchar();
-	int i = LocateVex_M(*G, v1), j = LocateVex_M(*G, v2);    // 确定 v1 和 v2 在 G 中位置
-	G->arcs[i][j].adj = 1;    // 弧<v1，v2>的权值
-	if (IncInfo) {    // 若弧含有相关信息，则输入
-	    G->arcs[i][j].info = (InfoType *)malloc(sizeof(InfoType));
-	    scanf("%d", G->arcs[i][j].info);
-	}
-	G->arcs[j][i] = G->arcs[i][j];    // 置<v1，v2>的对称弧<v2，v1>
+	    printf("输入第 %d 条边依附的顶点：", k + 1);
+	    scanf("%c %c", &v1, &v2);    // 输入一条边依附的顶点及权值
+	    getchar();
+	    int i = LocateVex_M(*G, v1), j = LocateVex_M(*G, v2);    // 确定 v1 和 v2 在 G 中位置
+	    G->arcs[i][j].adj = 1;    // 弧<v1，v2>的权值
+	    if (IncInfo) {    // 若弧含有相关信息，则输入
+	        G->arcs[i][j].info = (InfoType *)malloc(sizeof(InfoType));
+	        scanf("%d", G->arcs[i][j].info);
+	    }
+	    G->arcs[j][i] = G->arcs[i][j];    // 置<v1，v2>的对称弧<v2，v1>
     }
     return OK;
 }// CreateUDG_M
@@ -123,28 +123,28 @@ Status CreateUDN_M(MGraph *G) {
     scanf("%d %d %d", &G->vexnum, &G->arcnum, &IncInfo);    // IncInfo 为 0 则各弧不含其他信息
     getchar();
     for (int i = 0; i < G->vexnum; ++i) {
-	printf("输入第 %d 个顶点：", i + 1);
-	scanf("%c", &G->vexs[i]);
-	getchar();
+        printf("输入第 %d 个顶点：", i + 1);
+        scanf("%c", &G->vexs[i]);
+        getchar();
     }
     for (int i = 0; i < G->vexnum; ++i)    // 初始化邻接矩阵
-	for (int j = 0; j < G->vexnum; ++j) {
+	    for (int j = 0; j < G->vexnum; ++j) {
             G->arcs[i][j].adj = INFINITY;    // {adj, info}
             G->arcs[i][j].info = NULL;
-	}
+	    }
     for (int k = 0; k < G->arcnum; ++k) {    // 构造邻接矩阵
         VertexType v1, v2;
-	int w;
-	printf("输入第 %d 条边依附的顶点及权值：", k + 1);
-	scanf("%c %c %d", &v1, &v2, &w);    // 输入一条边依附的顶点及权值
-	getchar();
-	int i = LocateVex_M(*G, v1), j = LocateVex_M(*G, v2);    // 确定 v1 和 v2 在 G 中位置
-	G->arcs[i][j].adj = w;    // 弧<v1，v2>的权值
-	if (IncInfo) {    // 若弧含有相关信息，则输入
-	    G->arcs[i][j].info = (InfoType *)malloc(sizeof(InfoType));
-	    scanf("%d", G->arcs[i][j].info);
-	}
-	G->arcs[j][i] = G->arcs[i][j];    // 置<v1，v2>的对称弧<v2，v1>
+	    int w;
+	    printf("输入第 %d 条边依附的顶点及权值：", k + 1);
+	    scanf("%c %c %d", &v1, &v2, &w);    // 输入一条边依附的顶点及权值
+	    getchar();
+	    int i = LocateVex_M(*G, v1), j = LocateVex_M(*G, v2);    // 确定 v1 和 v2 在 G 中位置
+	    G->arcs[i][j].adj = w;    // 弧<v1，v2>的权值
+	    if (IncInfo) {    // 若弧含有相关信息，则输入
+	        G->arcs[i][j].info = (InfoType *)malloc(sizeof(InfoType));
+	        scanf("%d", G->arcs[i][j].info);
+	    }
+	    G->arcs[j][i] = G->arcs[i][j];    // 置<v1，v2>的对称弧<v2，v1>
     }
     return OK;
 }// CreateUDN_M
@@ -175,12 +175,13 @@ Status DestroyGraph_M(MGraph *G) {
     // 销毁图 G
     for (int i = 0; i < G->vexnum; ++i) G->vexs[i] = ' ';
     for (int i = 0; i < G->vexnum; ++i)
-	for (int j = 0; j < G->vexnum; ++j)
-	    if (G->arcs[i][j].info) {
-		free(G->arcs[i][j].info);
-		G->arcs[i][j].info = NULL;
-		G->arcs[i][j].adj = INFINITY;
-	    }
+	    for (int j = 0; j < G->vexnum; ++j) {
+	        if (G->arcs[i][j].info) {
+		        free(G->arcs[i][j].info);
+		        G->arcs[i][j].info = NULL;
+	        }
+		    G->arcs[i][j].adj = INFINITY;
+        }
     G->vexnum = G->arcnum = 0;
     return OK;
 }// DestroyGraph_M
@@ -331,7 +332,7 @@ void DFSTree_M(MGraph G, int v, CSTree *T, int visited[]) {
 	    p->firstchild = p->nextsibling = NULL;
 	    if (first) {    // w 是 v 的第一个未被访问的邻接顶点
 	        (*T)->firstchild = p;    // 是根的左孩子结点
-		first = 0;
+		    first = 0;
 	    } else {    // w 是 v 的其他未被访问的邻接顶点
 	        q->nextsibling = p;    // 是上一邻接顶点的右兄弟结点
 	    }
@@ -347,14 +348,14 @@ void DFSForest_M(MGraph G, CSTree *T) {
     CSTree p, q;
     for (int v = 0; v < G.vexnum; ++v)
         if (!visited[v]) {
-	    p = (CSTree)malloc(sizeof(CSNode));    // 分配根结点
-	    p->data = GetVex_M(G, v);    // 给该结点赋值
-	    p->firstchild = p->nextsibling = NULL;
-	    if (!(*T)) *T = p;    // 是第一棵生成树的根（T 的根）
-	    else q->nextsibling = p;    // 是其他生成树的根（前一棵的根的“兄弟”）
-	    q = p;    // q 指示当前生成树的根
-	    DFSTree_M(G, v, &p, visited);    // 建立以 p 为根的生成树
-	}
+	        p = (CSTree)malloc(sizeof(CSNode));    // 分配根结点
+	        p->data = GetVex_M(G, v);    // 给该结点赋值
+	        p->firstchild = p->nextsibling = NULL;
+	        if (!(*T)) *T = p;    // 是第一棵生成树的根（T 的根）
+	        else q->nextsibling = p;    // 是其他生成树的根（前一棵的根的“兄弟”）
+	        q = p;    // q 指示当前生成树的根
+	        DFSTree_M(G, v, &p, visited);    // 建立以 p 为根的生成树
+	    }
 }// DFSForest_M
 struct {
     VertexType adjvex;
@@ -365,25 +366,26 @@ void MiniSpanTree_PRIM(MGraph G, VertexType u) {
     // 记录从顶点集 U 到 V - U 的代价最小的边的辅助数组定义：
     int k = LocateVex_M(G, u), lowcost;
     for (int i = 0; i < G.vexnum; ++i)    // 辅助数组初始化
-	if (i != k) {
-	    closedge[i].adjvex = u;
-	    closedge[i].lowcost = G.arcs[k][i].adj;
-	}
+	    if (i != k) {
+	        closedge[i].adjvex = u;
+	        closedge[i].lowcost = G.arcs[k][i].adj;
+	    }
     closedge[k].lowcost = 0;    // 初始，U = { u }
-    for (int i = 0; i < G.vexnum; ++i) {    // 选择其余 G.vexnum - 1 个顶点
+    for (int i = 1; i < G.vexnum; ++i) {    // 选择其余 G.vexnum - 1 个顶点
         lowcost = INFINITY;
-	for (int j = 0; j < G.vexnum; ++i)    // 求出 T 的下一个结点：第 k 结点
+	    for (int j = 0; j < G.vexnum; ++j) {    // 求出 T 的下一个结点：第 k 结点
             if (closedge[j].lowcost > 0 && closedge[j].lowcost < lowcost) {
-	        lowcost = closedge[j].lowcost;
-		k = j;
-	    }
+	            lowcost = closedge[j].lowcost;
+		        k = j;
+	        }
+        }
         // 此时 closedge[k].lowcost = MIN{ closedge[vi].lowcost | closedge[vi].lowcost > 0, vi 属于 V - U}
-	printf("%c %c\n", closedge[k].adjvex, G.vexs[k]);    // 输出生成树的边
-	closedge[k].lowcost = 0;    // 第 k 顶点并入 U 集
-	for (int j = 0; j < G.vexnum; ++j)
+	    printf("%c %c\n", closedge[k].adjvex, G.vexs[k]);    // 输出生成树的边
+	    closedge[k].lowcost = 0;    // 第 k 顶点并入 U 集
+	    for (int j = 0; j < G.vexnum; ++j)
             if (G.arcs[k][j].adj < closedge[j].lowcost) {    // 新顶点并入 U 后重新选择最小边
-		closedge[j].adjvex = G.vexs[k];
-		closedge[j].lowcost = G.arcs[k][j].adj;
-	    }
+		        closedge[j].adjvex = G.vexs[k];
+		        closedge[j].lowcost = G.arcs[k][j].adj;
+	        }
     }
 }// MiniSpanTree_PRIM
